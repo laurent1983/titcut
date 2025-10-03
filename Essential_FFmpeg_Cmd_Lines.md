@@ -8,7 +8,7 @@ A quick reference for commonly used FFmpeg commands for **cutting, cropping, and
 
 ```bash
 ffmpeg -i input.mp4 -ss START -to END -c copy output.mp4
-
+```
 START → start time (e.g., 00:01:30)
 END → end time (e.g., 00:02:45)
 -c copy → copies streams without re-encoding (lossless & fast)
@@ -17,6 +17,7 @@ END → end time (e.g., 00:02:45)
 
 ```bash
 ffmpeg -i input.mp4 -vf "crop=w:h:x:y" -c:a copy output.mp4
+```
 
 -c:a copy → keeps audio intact
 
@@ -24,6 +25,7 @@ ffmpeg -i input.mp4 -vf "crop=w:h:x:y" -c:a copy output.mp4
 
 ```bash
 ffmpeg -f pipewire -i 0 -c:v h264_qsv -preset veryfast -c:a aac -b:a 128k output.mp4
+```
 
 -f pipewire -i 0 → capture the full screen via PipeWire
 -c:v h264_qsv → use Intel GPU hardware acceleration
