@@ -21,7 +21,7 @@ ffmpeg -i input.mp4 -vf "crop=w:h:x:y" -c:a copy output.mp4
 
 - -c:a copy → keeps audio intact
 
-### Video Info
+## Video Info
 
 ```bash
 ffprobe output.mp4 2>&1 | grep -E 'Duration|Stream'
@@ -29,21 +29,21 @@ ffprobe output.mp4 2>&1 | grep -E 'Duration|Stream'
 
 ## Screen record
 
-# Basic recording (entire screen)
+### Basic recording (entire screen)
 
 ```bash
 wf-recorder -f output.mp4
 ```
 
-# Record specific area (interactive selection)
+### Record specific area (interactive selection)
 
 ```bash
 wf-recorder -g "$(slurp)" -f output.mp4
 ```
 
-# Record with audio
+### Record with audio
 
 ```bash
 wf-recorder -a -f output.mp4
 ```
- Stop recording with Ctrl+C
+- Stop recording with Ctrl+C
