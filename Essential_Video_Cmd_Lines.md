@@ -47,3 +47,21 @@ wf-recorder -g "$(slurp)" -f output.mp4
 wf-recorder -a -f output.mp4
 ```
 - Stop recording with Ctrl+C
+
+## Compression to hd
+
+```bash
+ffmpeg -hwaccel vaapi -hwaccel_device /dev/dri/renderD128 -hwaccel_output_format vaapi \
+-i output.mp4 -vf "scale_vaapi=-2:720" -c:v h264_vaapi -qp 23 -c:a copy output_720p.mp4
+```
+- -hwaccel vaapi: Enables VAAPI (Video Acceleration API) hardware acceleration, mainly used on Linux with Intel/AMD GPUs for faster decoding/encoding.
+- -hwaccel_device /dev/dri/renderD128: Tells ffmpeg which GPU device to use.
+On Linux, /dev/dri/renderD128 is usually the default render node.
+- -hwaccel_output_format vaapi: Forces the intermediate video format to use VAAPI so the data stays on the GPU, avoiding unnecessary copies to RAM.
+- -vf "scale_vaapi=-2:720": Scales the video using VAAPI. 720 → sets the height to 720 pixel. -2 → tells ffmpeg to automatically calculate the width while keeping the aspect ratio, but it must be divisible by 2 (codec requirement).
+- -c:v h264_vaapi: Uses the hardware H.264 encoder via VAAPI for the output.
+- -qp 23: Sets the quantizer parameter (quality).
+- -c:a copy: Copies the audio stream without re-encoding (faster, no quality loss).
+
+
+
