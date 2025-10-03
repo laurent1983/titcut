@@ -21,14 +21,29 @@ ffmpeg -i input.mp4 -vf "crop=w:h:x:y" -c:a copy output.mp4
 
 - -c:a copy → keeps audio intact
 
-## Screen record
+### Video Info
 
 ```bash
-ffmpeg -f pipewire -i 0 -c:v h264_qsv -preset veryfast -c:a aac -b:a 128k output.mp4
+ffprobe output.mp4 2>&1 | grep -E 'Duration|Stream'
 ```
 
-- -f pipewire -i 0 → capture the full screen via PipeWire
-- -c:v h264_qsv → use Intel GPU hardware acceleration
-- -preset veryfast → fast encoding
-- -c:a aac -b:a 128k → audio encoding
+## Screen record
 
+# Basic recording (entire screen)
+
+```bash
+wf-recorder -f output.mp4
+```
+
+# Record specific area (interactive selection)
+
+```bash
+wf-recorder -g "$(slurp)" -f output.mp4
+```
+
+# Record with audio
+
+```bash
+wf-recorder -a -f output.mp4
+```
+ Stop recording with Ctrl+C
