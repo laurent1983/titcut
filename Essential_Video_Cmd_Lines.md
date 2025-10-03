@@ -48,6 +48,19 @@ wf-recorder -a -f output.mp4
 ```
 - Stop recording with Ctrl+C
 
+
+### Record using GPU
+
+```bash
+gpu-screen-recorder -w HDMI-A-1 -f 60 -a default_output -o test.mp4
+```
+
+### Record using GPU (specific area)
+
+```bash
+gpu-screen-recorder -w region -region "$(slurp -f '%wx%h+%x+%y')" -f 60 -a default_output -o output.mp4
+```
+
 ## Compression to hd
 
 ```bash
