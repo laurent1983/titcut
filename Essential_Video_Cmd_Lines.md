@@ -76,5 +76,21 @@ On Linux, /dev/dri/renderD128 is usually the default render node.
 - -qp 23: Sets the quantizer parameter (quality).
 - -c:a copy: Copies the audio stream without re-encoding (faster, no quality loss).
 
+```bash
+ffmpeg -i input.mp4 -vf subtitles=subtitle.srt output.mp4
+```
+Format of .str file
+
+1
+00:00:00,500 --> 00:00:03,000
+Welcome to the video!
+
+2
+00:00:03,500 --> 00:00:06,000
+Today we'll learn about FFmpeg.
+
+3
+00:00:06,500 --> 00:00:09,000
+Let's get started.
 
 
