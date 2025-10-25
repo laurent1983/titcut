@@ -1,0 +1,82 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ----------------------------------------------------
+# 🪣 Logs
+# ----------------------------------------------------
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ----------------------------------------------------
+# 📦 Node / Frontend
+# ----------------------------------------------------
+node_modules
+dist
+dist-ssr
+*.local
+
+# ----------------------------------------------------
+# 🦀 Rust / Tauri backend
+# ----------------------------------------------------
+src-tauri/target/
+src-tauri/Cargo.lock
+# If you ever use wasm builds:
+wasm-pack.log
+
+# ----------------------------------------------------
+# 💾 Build outputs / installers
+# ----------------------------------------------------
+*.app
+*.dmg
+*.exe
+*.deb
+*.AppImage
+*.msi
+
+# ----------------------------------------------------
+# 🧠 Editor / OS junk
+# ----------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
+
+# ----------------------------------------------------
+# 🎞️ Project-specific outputs
+# ----------------------------------------------------
+output*.mp4
+temp/
+
